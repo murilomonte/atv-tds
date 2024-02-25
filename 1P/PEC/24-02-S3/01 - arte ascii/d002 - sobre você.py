@@ -1,7 +1,7 @@
 print('''
 Meu animal favorito é o gato:
       
-     /\_/\\
+     /\\_/\\ 
     (>0.0<)
 
 Eu moro em União:  
