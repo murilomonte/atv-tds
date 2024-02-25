@@ -1,3 +1,4 @@
-primeiroNumero = int(input("").strip())
-segundoNumero = int(input("").strip())
-print(primeiroNumero * segundoNumero)
+primeiroNumero = float(input("").strip())
+segundoNumero = float(input("").strip())
+print(f'{primeiroNumero + segundoNumero}')
+print(f'{primeiroNumero * segundoNumero}')

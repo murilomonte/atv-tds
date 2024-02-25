@@ -1,2 +1,2 @@
 numeroMiau = int(input("").strip())
-print(f'{numeroMiau * 'miau'}')
+print(f'{numeroMiau * "miau"}')
