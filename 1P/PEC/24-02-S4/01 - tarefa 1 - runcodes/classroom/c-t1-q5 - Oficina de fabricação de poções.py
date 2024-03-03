@@ -1,0 +1,5 @@
+print('//-- Informe a quantiade de ingredientes --//')
+poDeLua = int(input('Pó de Lua Estelar (5 moedas): '))
+essDeDragao = int(input('Essência de Dragão (3 moedas): '))
+lagDeFenix = int(input('Lágrimas de Fênix (8 moedas): '))
+print(f'Valor final: {(poDeLua * 5)+(essDeDragao * 3)+(lagDeFenix * 8)}')
