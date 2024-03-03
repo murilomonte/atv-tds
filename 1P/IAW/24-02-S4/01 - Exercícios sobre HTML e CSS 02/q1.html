@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradiente radial</title>
+    <style>
+        div {
+            height: 250px;
+            width: 250px;
+            text-align: center;
+
+            margin-bottom: 20px;
+        }
+
+        .gradiente-radial { 
+            background: radial-gradient(rgba(0, 128, 0, 1), rgba(0, 0, 255, 1));
+            color: white;
+        }
+
+        .gradiente-cone { 
+            background: conic-gradient(rgba(0, 255, 255, 1), rgba(255, 192, 203, 1));
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Q1 - Uso de gradiente</h1>
+    
+    <div class="gradiente-radial">
+        Gradiente radial
+    </div>
+
+    <div class="gradiente-cone">
+        Gradiente cone
+    </div>
+</body>
+</html>
