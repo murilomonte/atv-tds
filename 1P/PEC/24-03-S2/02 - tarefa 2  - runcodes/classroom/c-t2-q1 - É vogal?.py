@@ -1,5 +1,5 @@
 def eVogal(caractere):
-    return caractere.upper() in 'AEIOU'
+   return caractere.upper() in 'AEIOU'
 
 caractere = input('Insira o caractere: ')
 
