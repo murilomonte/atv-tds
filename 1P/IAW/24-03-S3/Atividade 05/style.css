@@ -1,0 +1,15 @@
+.bom-comportamento-lista {
+    list-style-type: upper-roman;
+}
+
+.placas-de-transito-lista > li:nth-child(1) {
+    list-style-image: url(Imagens/pare.webp);
+}
+
+.placas-de-transito-lista > li:nth-child(2) {
+    list-style-image: url(Imagens/lombada.png);
+}
+
+.placas-de-transito-lista > li:nth-child(3) {
+    list-style-image: url(Imagens/semaforo.png);
+}
