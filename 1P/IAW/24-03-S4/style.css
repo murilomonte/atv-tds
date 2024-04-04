@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    /* Light */
+    --fundo: #F5F5F5;
+    --texto: #121212;
+    --botoes: #FFFFFF;
+    --card: var(--botoes);
+    --data: #B3B3B3;
+    --hover: #E3E3E3;
+}
+
+html.dark-mode {
+    /* Dark */
+    --fundo: #121212;
+    --texto: #F5F5F5;
+    --botoes: #242424;
+    --card: var(--botoes);
+    --data: #B3B3B3;
+    --hover: #363636;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    background-color: var(--fundo);
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--texto)
+}
+
+a:visited {
+    color: var(--texto)
+}
+
+header,
+main,
+footer {
+    margin: auto;
+    max-width: 500px;
+    padding: 0px 20px;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+h1,
+h2 {
+    font-family: "Josefin Sans", sans-serif;
+    color: var(--texto);
+}
+
+h2 {
+    margin: 5px 0px;
+}
+
+p {
+    margin: 10px 0;
+    color: var(--texto);
+}
+
+.navegacao {
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.navegacao > li > a {
+    display: block;
+    background-color: var(--botoes);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    font-size: .9rem;
+    transition:  .2s;
+}
+
+.navegacao > li:last-child > a,
+footer > a {
+    background-color: var(--botoes);
+    padding: 10px 15px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+}
+
+.navegacao > li > a:hover,
+footer > a:hover {
+    background-color: var(--hover);
+}
+
+.post {
+    background-color: var(--card);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.data {
+    color: var(--data);
+}
+
+.autor {
+    color: var(--texto);
+}
+
+footer {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+#rodape {
+    text-align: center;
+}
+
+.redes-sociais {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.redes-sociais > a{
+    margin-right: 20px;
+}
