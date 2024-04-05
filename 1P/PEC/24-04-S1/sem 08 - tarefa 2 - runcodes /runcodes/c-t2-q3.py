@@ -9,7 +9,7 @@ def buzz(num):
         print(num)
 
 def main():
-    num = int(input('Insira um número: '))
+    num = int(input())
     buzz(num)
 
 if __name__ == '__main__':
