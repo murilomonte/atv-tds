@@ -14,6 +14,8 @@ speed(5)
 color('Purple')
 pensize(5)
 
-forma('esq', 3, 100)
+for count in range(36):
+    forward(100)
+    right(100)
 
 done()
