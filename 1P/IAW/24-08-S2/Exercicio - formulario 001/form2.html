@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" oninput="anos.value = `${new Date().getFullYear() - parseInt(nasc.value)} Anos!`"> 
+        <div class="produtos">
+            <label for="produtos">Selecione o produto</label>
+            <input type="search" list="produtos" name="produto" id="produto">
+            <datalist id="produtos">
+                <option value="bolacha">
+                <option value="biscoito">
+            </datalist>
+        </div>
+
+        <div class="dados">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required pattern=".+@example\.com"> <br> <br>
+
+            <label for="tele">Telefone</label>
+            <input type="" name="tel" id="tel" pattern="([0-9]{2})[0-9]{5}-[0-9]{4}" placeholder="(99) 99999-9999"> <br> <br>
+
+            <label for="points">nivel de urgência</label>
+            <input type="range" name="points" id="points" min="0" max="10"> <br> <br>
+
+            <label for="dates">data</label>
+            <input type="date" id="date"> <br> <br>
+
+            <label for="color">color</label>
+            <input type="color" id="color"> <br> <br>
+
+            <!-- 18. Tag output. Exercício: Implemente um campo de input do tipo number que
+            calcule e mostre em tempo real a idade do usuário em um elemento output. -->
+
+            <input type="number" name="idade" id="nasc">
+            = <output name="anos" for="idade"> Insira uma data de nascimento. </output> <br> <br>
+
+            <fieldset>
+                <legend>Dados:</legend>
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome"> <br>
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email"> <br>
+
+                <label for="idade">Idade</label>
+                <input type="number" name="idade" id="idade"> <br>
+
+                <button type="submit">Enviar</button>
+            </fieldset>
+        </div>
+    </form>
+</body>
+
+</html>

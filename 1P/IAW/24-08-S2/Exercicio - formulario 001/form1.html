@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="http://exemplo.com/inscricao">
+        <div class="formulario">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome">
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+
+            <label for="idade">Idade</label>
+            <input type="number" name="idade" id="idade">
+
+            <button type="submit">Enviar</button>
+        </div>
+        
+        <div class="senha">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha" maxlength="12">
+        </div>
+
+        <div class="satisfacao">
+            <p>Qual o seu nível de satisfação com o nosso serviço?</p>
+            <input type="radio" name="satisfacao" id="satisfeito" value="satisfeito">
+            <label for="satisfeito">Satisfeito</label>
+            <input type="radio" name="satisfacao" id="neutro" value="neutro">
+            <label for="neutro">Neutro</label>
+            <input type="radio" name="satisfacao" id="insatisfeito" value="isatisfeito">
+            <label for="insatisfeito">Insatisfeito</label>
+        </div>
+
+        <div class="newsletter">
+            <p>Quais newsletter deseja assinar?</p>
+            <input type="checkbox" name="newsletter" id="novidades" value="novidades">
+            <label for="novidades">novidades</label>
+            <input type="checkbox" name="newsletter" id="promocoes" value="promocoes">
+            <label for="promocoes">Promoções</label>
+            <input type="checkbox" name="newsletter" id="artigos" value="artigos">
+            <label for="artigos">Artigos técnicos</label>
+        </div>
+
+        <div class="frequencia">
+            <select name="frequencia" id="frequencia">
+                <option value="diariamente">Diariamente</option>
+                <option value="semanalmente">Semanalmente</option>
+                <option value="mensalmente">Mensalmente</option>
+            </select>
+        </div>
+
+        <div class="opiniao">
+            <p>Descreva com suas palavras como poderíamos melhorar nossos serviços.</p>
+            <textarea name="opiniao" id="opiniao"></textarea>
+        </div>
+        <button type="submit">enviar</button>
+        <button type="reset">apagar</button>
+    </form>
+</body>
+</html>
