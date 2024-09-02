@@ -19,7 +19,7 @@ def main():
     print('Digite os', qt, 'termos:')
     while len(lista) < qt:
         val = input('> ').strip()
-        if 'A' <= val.upper() < 'Z':
+        if 'A' <= val.upper() <= 'Z':
             lista.append(ord(val))
         else:
             lista.append(float(val))
