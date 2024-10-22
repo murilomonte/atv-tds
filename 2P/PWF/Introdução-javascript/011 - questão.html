@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>11. Exibir Endereços em um Único Parágrafo</h1>
+    <p>
+        Crie uma página com vários parágrafos. Cada um deve conter uma informação sobre o
+        endereço: 'Logradouro', Número, Bairro, Complemento, e Cidade. Use getElementById() e
+        innerHTML para exibir todas essas informações em um único parágrafo, separadas por vírgulas.
+    </p>
+    <p id="logradouro">R. Álvaro Mendes</p>
+    <p id="numero">94</p>
+    <p id="bairro">Centro (Sul)</p>
+    <p id="complemento">Instituto Federal</p>
+    <p id="cidade">Teresina</p>
+    <p id="endereco-completo"></p>
+    <script>
+        let logradouro = document.getElementById('logradouro').innerHTML
+        let numero = document.getElementById('numero').innerHTML
+        let bairro = document.getElementById('bairro').innerHTML
+        let complemento = document.getElementById('complemento').innerHTML
+        let cidade = document.getElementById('cidade').innerHTML
+
+        document.getElementById('endereco-completo').innerHTML = `${logradouro}, ${numero}, ${bairro}, ${complemento}, ${cidade}` 
+    </script>
+</body>
+</html>
