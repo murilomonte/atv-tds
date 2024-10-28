@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>1) Crie uma funcionalidade (página + script) que tenha dois botões:</p>
+    <ul>
+        
+        <li>Em um, chame uma função chamada boaTarde(), escrevendo a frase boa tarde em uma div.</li>
+        <li>No outro, chame uma função chamada boaNoite(), escrevendo a frase boa noite na mesma div.</li>
+    </ul>
+
+    <div class="saudacao">
+
+    </div>
+    <button class="bomdia">Bom dia</button>
+    <button class="boanoite">Boa noite</button>
+    <script>
+        let saudadcao = document.querySelector('.saudacao');
+        let bomdia = document.querySelector('.bomdia');
+        let boanoite = document.querySelector('.boanoite');
+        
+        bomdia.addEventListener('click', () => {
+           saudadcao.innerText = 'Bom dia!';
+        });
+
+        boanoite.addEventListener('click', () => {
+           saudadcao.innerText = 'Boa noite!';
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Pesquise a documentação para uso de métodos de strings https://www.w3schools.com/js/js_string_methods.asp e crie impleme ntações que:</p>
+    <ul>
+        <li>Exiba o seu tamanho (lenght);</li>
+        <li>Converta-o para minúsculo (toLowerCase);</li>
+        <li>Substitua as ocorrências de 'a', 'e', 'i', 'o' por '@', '3', '1', '0' (replace);</li>
+        <li>Exiba-o sem espaços antes e depois (trim);</li>
+    </ul>
+
+    <label for="string">Insira uma string</label>
+    <input type="text" name="string" id="iString">
+    <button class="analisar">Analisar</button>
+
+    <div>
+        <p class="tamanho"></p>
+        <p class="minusculo"></p>
+        <p class="substituir"></p>
+        <p class="espaco"></p>
+    </div>
+
+    <script>
+        let analisar = document.querySelector('.analisar');
+        
+        let tamanho = document.querySelector('.tamanho')
+        let minusculo = document.querySelector('.minusculo')
+        let substituir = document.querySelector('.substituir')
+        let espaco = document.querySelector('.espaco')
+
+        function substituirText(texto) {
+            return texto.replace(/[aeio]/gi, (letra) => {
+                switch(letra.toLowerCase()) {
+                    case 'a': return '@';
+                    case 'e': return '3';
+                    case 'i': return '1';
+                    case 'o': return '0';
+                }
+            })
+        }
+        
+        analisar.addEventListener('click', () => {
+            let string = document.querySelector('#iString').value;
+            tamanho.innerHTML = "Tamanho (lenght): " + string.length;
+            minusculo.innerHTML = "Para minúsculo (toLowerCase): : " + string.toLowerCase();
+            substituir.innerHTML = "Substitua as ocorrências de 'a', 'e', 'i', 'o' por '@', '3', '1', '0' (replace): " + substituirText(string);
+            espaco.innerHTML = "Exiba-o sem espaços antes e depois (trim): " + string.trim();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="scripts_q3.js" defer></script>
+</head>
+
+<body>
+    <h1>Biblioteca Math</h1>
+
+    <p>Um número randômico entre 1 e 10:</p>
+    <button id="botao1">Enviar</button>
+    <div id="resultado1"></div>
+
+    <p>O valor absoluto de um número lido:</p>
+    <input type="text" placeholder="Digite o número: " id="texto2">
+    <button id="botao2">Enviar</button>
+    <div id="resultado2"></div>
+
+    <p>O maior deles:</p>
+    <input type="text" placeholder="Digite o primeiro número: " id="texto3_1">
+    <input type="text" placeholder="Digite o segundo número: " id="texto3_2">
+    <button id="botao3">Enviar</button>
+    <div id="resultado3"></div>
+
+    <p>Um número real e exiba-o de forma arredondada:</p>
+    <input type="text" placeholder="Digite o número: " id="texto4">
+    <button id="botao4">Enviar</button>
+    <div id="resultado4"></div>
+
+    <p>Dois números e exiba um elevado ao outro:</p>
+    <input type="text" placeholder="Digite o primeiro número: " id="texto5_1">
+    <input type="text" placeholder="Digite o segundo número: " id="texto5_2">
+    <button id="botao5">Enviar</button>
+    <div id="resultado5"></div>
+    <script>
+        var botao1 = document.getElementById('botao1')
+        botao1.addEventListener('click', () => {
+            var resultado1 = document.getElementById('resultado1')
+            var numero1 = parseInt(Math.random() * 10)
+            resultado1.innerHTML = `Resultado = ${numero1}`
+        })
+
+        var botao2 = document.getElementById('botao2')
+        botao2.addEventListener('click', () => {
+            var resultado2 = document.getElementById('resultado2')
+            var texto2 = document.getElementById('texto2')
+            var numero2 = Math.abs(parseFloat(texto2.value))
+            resultado2.innerHTML = `Resultado = ${numero2}`
+        })
+
+        var botao3 = document.getElementById('botao3')
+        botao3.addEventListener('click', () => {
+            var resultado3 = document.getElementById('resultado3')
+            var texto3_1 = document.getElementById('texto3_1')
+            var texto3_2 = document.getElementById('texto3_2')
+            var numero3 = Math.max(texto3_1.value, texto3_2.value)
+            resultado3.innerHTML = `Resultado = ${numero3}`
+        })
+
+        var botao4 = document.getElementById('botao4')
+        botao4.addEventListener('click', () => {
+            var resultado4 = document.getElementById('resultado4')
+            var texto4 = document.getElementById('texto4')
+            var numero4 = Math.round(texto4.value)
+            resultado4.innerHTML = `Resultado = ${numero4}`
+        })
+
+        var botao5 = document.getElementById('botao5')
+        botao5.addEventListener('click', () => {
+            var resultado5 = document.getElementById('resultado5')
+            var texto5_1 = document.getElementById('texto5_1')
+            var texto5_2 = document.getElementById('texto5_2')
+            var numero5 = Math.pow(texto5_1.value, texto5_2.value)
+            resultado5.innerHTML = `Resultado = ${numero5}`
+        })
+    </script>
+</body>
+
+</html>

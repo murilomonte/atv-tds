@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Crie implementações que:</p>
+    <ul>
+        <li>Leia o nome e o sobrenome de uma pessoa de duas caixas de texto e exiba o nome completo;</li>
+        <li>Leia 2 números de um formulário HTML números e exiba a soma e diferença deles;</li>
+        <li>Limpe o conteúdo de uma Caixa ao clicar em um botão.</li>
+        <li>Copie o texto de uma caixa de texto para outra.</li>
+    </ul>
+
+    <div class="nome-sobrenome">
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="inome">
+        <label for="sobrenome">Sobrenome</label>
+        <input type="text" name="sobrenome" id="isobrenome">
+        <button class="analisar">Analisar</button>
+        <div class="nome-completo"></div>
+    </div> <br>
+
+    <div class="soma-diferenca">
+        <label for="inum1">Primeiro número</label>
+        <input type="number" name="num1" id="inum1">
+        <label for="inum2">Segundo número</label>
+        <input type="number" name="num2" id="inum2">
+        <button class="analisar">Analisar</button>
+        <div class="resultado">
+        </div>
+    </div> <br>
+
+    <div class="caixa">
+        <input type="text" name="caixaTexto1" id="icaixaTexto1" placeholder="Digite algo">
+        <input type="text" name="caixaTexto2" id="icaixaTexto2" placeholder="Digite algo">
+        <button class="limpar">Limpar</button>
+        <button class="trocar">Trocar</button>
+    </div>
+
+    <script>
+        // Nome completo
+        let analisarNome = document.querySelector('.nome-sobrenome .analisar');
+        let nomeCompleto = document.querySelector('.nome-sobrenome .nome-completo');
+        
+        analisarNome.addEventListener('click', () => {
+            let nome = document.querySelector('#inome').value;
+            let sobrenome = document.querySelector('#isobrenome').value;
+            nomeCompleto.innerHTML = `Olá! ${nome} ${sobrenome}`
+        });
+
+        // Soma e diferença
+        let analisarNumero = document.querySelector('.soma-diferenca .analisar');
+        let resultadoNumero = document.querySelector('.soma-diferenca .resultado');
+
+        analisarNumero.addEventListener('click', () => {
+            let num1 = Number(document.querySelector('#inum1').value);
+            let num2 = Number(document.querySelector('#inum2').value);
+            resultadoNumero.innerHTML = `<p>Soma: ${num1 + num2}</p><p>Diferença: ${Math.abs(num1 - num2)}</p>`;
+        });
+
+        // Limpar e trocar
+        let limpar = document.querySelector('.limpar');
+        let trocar = document.querySelector('.trocar')
+        let caixaTexto1 = document.querySelector('#icaixaTexto1');
+        let caixaTexto2 = document.querySelector('#icaixaTexto2');
+
+        limpar.addEventListener('click', () => {
+            caixaTexto1.value = '';
+            caixaTexto2.value = '';
+        });
+
+        trocar.addEventListener('click', () => {
+            let aux = caixaTexto1.value
+            caixaTexto1.value = caixaTexto2.value
+            caixaTexto2.value = aux 
+        });
+    </script>
+</body>
+
+</html>

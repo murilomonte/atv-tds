@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>2) Altere a questão anterior para ler de uma caixa de texto o nome da pessoa areceber a saudação. Dessa forma, deve ser exibido algo como: “Boa tarde, Ely” ou “Boa noite, Fulano”.</p>
+
+    <label for="nome">Qual o seu nome?</label>
+    <input type="text" name="nome" id="inome">
+    
+    <button class="bomdia">Bom dia</button>
+    <button class="boanoite">Boa noite</button>
+    <div class="saudacao"></div>
+    <script>
+        let saudadcao = document.querySelector('.saudacao');
+        let bomdia = document.querySelector('.bomdia');
+        let boanoite = document.querySelector('.boanoite');
+        
+        bomdia.addEventListener('click', () => {
+            let nome = document.querySelector('#inome').value;
+            saudadcao.innerText = `Bom dia, ${nome}!`;
+        });
+
+        boanoite.addEventListener('click', () => {
+            let nome = document.querySelector('#inome').value;
+            saudadcao.innerText = `Boa noite, ${nome}!`;
+        });
+    </script>
+</body>
+
+</html>
