@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="texto">Insira um número</label>
+    <input type="text" name="texto" id="itexto">
+    <button type="button" class="botao">Adicionar</button>
+    <p class="saida"></p>
+
+    <script>
+        let botao = document.querySelector('.botao');
+        let saida = document.querySelector('.saida');
+        
+        botao.addEventListener('click', () => {
+            let texto = document.querySelector('#itexto');
+            texto = texto.value
+            saida.innerHTML = texto.padStart(5, '0');
+        })
+        
+    </script>
+</body>
+</html>

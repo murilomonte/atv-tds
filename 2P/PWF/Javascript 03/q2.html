@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="n1">Número 1</label>
+    <input type="text" name="n1" id="in1">
+
+    <label for="n2">Número 2</label>
+    <input type="text" name="n2" id="in2">
+    <button type="button" class="botao">Calcular</button>
+    <p class="saida"></p>
+
+    <script>
+        let n1 = document.querySelector('#in1')
+        let n2 = document.querySelector('#in2')
+        let botao = document.querySelector('.botao');
+        let saida = document.querySelector('.saida');
+
+        botao.addEventListener('click', () => {
+            n1 = Number(n1.value);
+            n2 = Number(n2.value);
+
+            let adic = n1 + n2;
+            let subt = n1 - n2;
+            let multi = n1 * n2;
+            let divi = n1 / n2;
+            saida.innerText = `Adição: ${adic}\nSubtração: ${subt}\nMultiplicação: ${multi}\nDivisão: ${divi}`;
+        })
+
+    </script>
+</body>
+</html>

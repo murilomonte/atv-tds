@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="temp">Temperatura em celcius</label>
+    <input type="number" name="temp" id="itemp">
+    <button type="button" class="botao">Converter</button>
+    <p class="saida"></p>
+
+    <script>
+        let temp = document.querySelector('#itemp')
+        let botao = document.querySelector('.botao');
+        let saida = document.querySelector('.saida');
+
+        function convFahrenheit(celcius){
+            return (celcius * (9/5)) + 32
+        }
+
+        botao.addEventListener('click', () => {
+            temp = Number(temp.value);
+
+            saida.innerText = `Temperatura em Fahrenheit: ${convFahrenheit(temp)}°F`;
+        })
+
+    </script>
+</body>
+</html>
