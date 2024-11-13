@@ -42,8 +42,8 @@ class Cnh:
             self.validade = 'Validade inválida.'
 
     def add_categoria(self, categoria):
-        if categoria in 'ABCDE':
-            self.categoria = categoria
+        if categoria.upper() in 'ABACADE':
+            self.categoria = categoria.upper()
         else:
             self.categoria = 'Categoria inválida.'
 
