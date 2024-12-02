@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 1</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        html.dark {
+            background-color: black;
+            color: white;
+        }
+
+        html.light {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="res">
+        <p>Lorem ipsum dolor sit amet</p>
+    </div>
+    <div class="botoes">
+        <input type="number" name="hora" id="iHora" min="0" max="23">
+        <button class="btn">alterar</button>
+    </div>
+    <script>
+        let body = document.querySelector('.res');
+        let btn = document.querySelector('.btn');
+        
+        
+        btn.addEventListener('click', () => {
+            let html = document.querySelector('html')
+            let hora = document.querySelector('#iHora');
+            if (hora.value >= 18 || hora.value <= 6) {
+                html.className = 'dark'
+            } else { 
+                html.className = 'light'
+            }
+            console.log(html.className)
+        });
+    </script>
+</body>
+
+</html>

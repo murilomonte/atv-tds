@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 1</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resultado">
+        <p>Lorem ipsum dolor sit amet</p>
+    </div>
+    <div class="botoes">
+        <button class="menos">-</button>
+        <button class="mais">+</button>
+        <button class="reset">Redefinir</button>
+    </div>
+    <script>
+        let menos = document.querySelector('.menos');
+        let mais = document.querySelector('.mais');
+        let reset = document.querySelector('.reset');
+        let res = document.querySelector('.resultado');
+
+        let tamanho = 16
+        const defTamanho = () => res.style.fontSize = tamanho + 'px';
+        defTamanho()
+
+        mais.addEventListener('click', () => {
+            tamanho++;
+            defTamanho()
+        });
+        
+        menos.addEventListener('click', () => {
+            tamanho--;
+            defTamanho()
+        });
+        
+        reset.addEventListener('click', () => {
+            tamanho = 16;
+            defTamanho()
+        });
+        
+    </script>
+</body>
+
+</html>
