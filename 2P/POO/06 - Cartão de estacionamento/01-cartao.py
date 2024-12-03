@@ -100,9 +100,71 @@ class CartaoEstac:
 
 def main():
     cartao = CartaoEstac("12/07/2024 20:23")
-    # print(cartao)
     cartao.consultar_valor("13/07/2024 00:25")
+    ## Consulta:
+    # Hora: 13/07/2024 00:25
+    # Tarifa: R$4
+    # Valor por tempo excedente: R$4.07
+    # Total a pagar: R$12.07
+
     cartao.registrar_saida("13/07/2024 01:25")
+    ## Consulta:
+    # Hora: 13/07/2024 01:25
+    # Tarifa: R$4
+    # Valor por tempo excedente: R$6.07
+    # Total a pagar: R$14.07
+
+    ## Cartão de Estacionamento
+    # Número ID: 20290HUK
+    # Status: Finalizado
+    # Tarifa: R$8 p/ 2 horas
+    # Entrada: 2024-07-12 20:23:00
+    # Saida: 13/07/2024 01:25
+
+    cartao1 = CartaoEstac("13/07/2024 08:15")
+    cartao1.consultar_valor("13/07/2024 12:15")
+    ## Consulta:
+    # Hora: 13/07/2024 12:15
+    # Tarifa: R$4
+    # Valor por tempo excedente: R$4.0
+    # Total a pagar: R$12.0
+
+    cartao1.registrar_saida("13/07/2024 12:45")
+    ## Consulta:
+    # Hora: 13/07/2024 12:45
+    # Tarifa: R$4
+    # Valor por tempo excedente: R$5.0
+    # Total a pagar: R$13.0
+
+    ## Cartão de Estacionamento
+    # Número ID: 77788AHw
+    # Status: Finalizado
+    # Tarifa: R$8 p/ 2 horas
+    # Entrada: 2024-07-13 08:15:00
+    # Saida: 13/07/2024 12:45
+
+    cartao2 = CartaoEstac("14/07/2024 09:30")
+    cartao2.consultar_valor("14/07/2024 13:30")
+    ## Consulta:
+    # Hora: 14/07/2024 13:30
+    # Tarifa: R$4
+    # Valor por tempo excedente: R$4.0
+    # Total a pagar: R$12.0
+
+    cartao2.registrar_saida("14/07/2024 14:00")
+    ## Consulta:
+    # Hora: 14/07/2024 14:00
+    # Tarifa: R$4
+    # Valor por tempo excedente: R$5.0
+    # Total a pagar: R$13.0
+
+    ## Cartão de Estacionamento
+    # Número ID: 47218fFm
+    # Status: Finalizado
+    # Tarifa: R$8 p/ 2 horas
+    # Entrada: 2024-07-14 09:30:00
+    # Saida: 14/07/2024 14:00
+
 
 if __name__ == "__main__":
     main()
