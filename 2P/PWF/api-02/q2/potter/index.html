@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Potter</h1>
+        <p>Informe uma casa de harry potter</p>
+        <div>
+            <datalist id="casas">
+                <option value="Ravenclaw"></option>
+                <option value="Hufflepuff"></option>
+                <option value="Slytherin"></option>
+                <option value="Gryffindor"></option>
+            </datalist>
+            <input type="text" name="house" list="casas" id="ihouse">
+            <button id="searchBtn">Buscar</button>
+        </div>
+    </header>
+
+    <section id="output">
+    </section>
+</body>
+</html>
