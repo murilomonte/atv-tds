@@ -53,6 +53,12 @@ let botaoInverter = document.getElementById('botaoInverter');
 
 const conversor = new Conversor(moedaBase, moedaConversao, resultado,);
 
-botaoConsultar.addEventListener('click', conversor.consultarPreco.bind(conversor));
-botaoLimpar.addEventListener('click', conversor.clearCampos.bind(conversor));
-botaoInverter.addEventListener('click', conversor.invertCampos.bind(conversor));
+botaoConsultar.addEventListener('click', () => {
+    conversor.consultarPreco()
+});
+botaoLimpar.addEventListener('click',  () => {
+    conversor.clearCampos()
+});
+botaoInverter.addEventListener('click',  () => {
+    conversor.invertCampos()
+});
