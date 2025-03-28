@@ -1,7 +1,7 @@
 # 11. Faça uma função que recebe, por parâmetro, um valor inteiro e positivo e retorna o número de divisores desse valor.
 
 
-def get_divisores(num) -> list[int]:
+def get_divisores(num: int) -> list[int]:
     divisores: list[int] = []
     for i in range(1, num):
         if num % i == 0:
@@ -13,9 +13,12 @@ def main() -> None:
     while True:
         try:
             num: int = int(input("Insira um número inteiro positivo: "))
-            divirores: list[int] = get_divisores(num)
-            print('Os divisores desse valor são:', divirores)
-            break
+            if num > 0:
+                divirores: list[int] = get_divisores(num)
+                print('Os divisores desse valor são:', divirores)
+                break
+            else:
+                print('O número precisa ser diferente de 0.')
         except ValueError:
             print("Entrada inválida. Digite um número.")
 

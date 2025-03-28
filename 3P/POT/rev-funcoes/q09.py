@@ -11,7 +11,7 @@ def get_num() -> int:
             print("Entrada inválida. Insira um número: ")
 
 
-def get_soma(n1, n2) -> int:
+def get_soma(n1: int, n2: int) -> int:
     soma: int = 0
     for i in range(n1, n2 + 1):
         if i == n1:
