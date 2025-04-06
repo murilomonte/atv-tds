@@ -46,6 +46,20 @@ app.get('/ola', (req, res) => {
     `);
 });
 
+// ## Métodos para tratar requisições
+app.get('/soma', (req, res) => {
+    res.render('soma')
+})
+
+// Trata a requisição do tipo POST
+app.post('/res_soma', (req, res) => {
+    // Acessa o corpo da requisição e obtém o a variável "nome"
+    let n1 = Number(req.body.n1);
+    let n2 = Number(req.body.n2);
+    let resposta = n1 + n2;
+    res.render('res_soma', { resposta });
+});
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
