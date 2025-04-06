@@ -12,4 +12,9 @@ Atividades realizadas durante o curso de Técnico em Desenvolvimento de Sistemas
 ### 2º Período
 
 * [(POO) Programação Orientada a Objetos](/2P/POO/)
-* [(PWF) Programação Orientada a Objetos](/2P/PWF/)
+* [(PWF) Programação Web Front-end](/2P/PWF/)
+
+### 3º Período
+
+* [(DOT) Desenvolvimento Orientado a Testes](/3P/DOT/)
+* [(PWB) Programação Web Back-end](/3P/PWB/)
