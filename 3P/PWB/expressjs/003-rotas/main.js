@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const main_router = require('./routers/main_router.js');
+const main_router = require('./routers/main_routers.js');
 
 // ## Configuração de views
 // Informa onde estão armazenadas as views
