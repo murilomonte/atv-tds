@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico</title>
+</head>
+
+<body>
+    <% if (registros.length != 0) { %>
+    <table>
+        <th>Disciplina</th>
+        <th>N1</th>
+        <th>N2</th>
+        <th>Média</th>
+        <% for (let i=0; i < registros.length; i++) { %>
+            <tr>
+                <td>
+                    <%= registros[i].disciplina %>
+                </td>
+                <td>
+                    <%= registros[i].nota1 %>
+                </td>
+                <td>
+                    <%= registros[i].nota2 %>
+                </td>
+                <td>
+                    <%= registros[i].media %>
+                </td>
+            </tr>
+            <% } %>
+    </table>
+    <% } else { %>
+        <p>Sem registros</p>
+    <% } %>
+    <a href="/aluno/novo_registro">Cadastrar</a>
+</body>
+
+</html>
