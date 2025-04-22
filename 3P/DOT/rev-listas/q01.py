@@ -7,10 +7,10 @@
 from random import randint
 
 
-def odd_even_list(number_list: list[int], isOdd: bool = True) -> list[int]:
+def odd_even_list(number_list: list[int], isEven: bool = True) -> list[int]:
     res_list: list[int] = []
     for i in number_list:
-        if isOdd:
+        if isEven:
             if i % 2 == 0:
                 res_list.append(i)
         else:
@@ -34,12 +34,12 @@ def main() -> None:
     print("Tamanho:", len(random_number_list))
 
     print("\n## Números pares")
-    odd_number_list: list[int] = odd_even_list(random_number_list, isOdd=True)
-    print("Lista:", odd_number_list)
-    print("Tamanho:", len(odd_number_list))
+    even_number_list: list[int] = odd_even_list(random_number_list, isEven=True)
+    print("Lista:", even_number_list)
+    print("Tamanho:", len(even_number_list))
 
     print("\n## Números ímpares")
-    even_number_list: list[int] = odd_even_list(random_number_list, isOdd=False)
+    even_number_list: list[int] = odd_even_list(random_number_list, isEven=False)
     print("Lista:", even_number_list)
     print("Tamanho:", len(even_number_list))
 
