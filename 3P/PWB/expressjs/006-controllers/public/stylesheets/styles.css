@@ -1,0 +1,17 @@
+
+
+/* Global */
+@import url('global/global.css');
+
+/* Header */
+@import url('header/header.css');
+
+/* Main */
+@import url('main/main.css');
+
+/* Sidebar navigation */
+@import url('sidebar-navigation/sidebar-navigation.css');
+
+/* Aluno dashboard */
+@import url('aluno-dashboard/aluno-dashboard.css');
+

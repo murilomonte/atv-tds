@@ -1,0 +1,40 @@
+.header {
+    background-color: rgb(227, 227, 227);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header > a {
+    font-weight: bolder;
+    font-size: 2rem;
+}
+
+.header > nav {
+    padding: 0px 10px;
+    display: flex;
+    justify-content: end;
+}
+
+.navigation {
+    display: flex;
+    gap: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    color: inherit;
+}
+
+.link-button {
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 10px;
+    background-color: rgb(185, 185, 185);
+}

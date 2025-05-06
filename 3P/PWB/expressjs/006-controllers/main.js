@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+const main_router = require('./routers/main_router.js');
 const aluno_router = require('./routers/aluno_router.js');
 
 // ## Configuração de views

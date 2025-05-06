@@ -1,0 +1,10 @@
+.sidebar-navigation {
+    padding: 10px;
+    background-color: rgb(227, 227, 227);
+}
+
+.sidebar-navigation > ul {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
