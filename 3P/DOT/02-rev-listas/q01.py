@@ -6,7 +6,6 @@
 
 from random import randint
 
-
 def odd_even_list(number_list: list[int], isEven: bool = True) -> list[int]:
     res_list: list[int] = []
     for i in number_list:

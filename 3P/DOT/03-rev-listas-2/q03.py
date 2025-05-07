@@ -5,10 +5,9 @@ from random import randint
 
 def determine_sum(number_list: list[int]) -> int:
     largest_sum: int = 0
-    for index in range(len(number_list)):
-        if index < len(number_list):
-            if number_list[index] + number_list[index + 1] > largest_sum:
-                largest_sum = number_list[index] + number_list[index]
+    for index in range(len(number_list) - 1):
+        if number_list[index] + number_list[index + 1] > largest_sum:
+            largest_sum = number_list[index] + number_list[index]
     return largest_sum
 
 def random_list(lenght: int, start: int = 0, end: int = 10) -> list[int]:
