@@ -1,17 +1,9 @@
 # 9. Escreva uma função que recebe 2 números inteiros n1 e n2 como entrada e retorna a soma de todos os números inteiros contidos
 # no intervalo [n1,n2]. Use esta função em um programa que lê n1 e n2 do usuário e imprime a soma.
 
-
-def get_num() -> int:
-    while True:
-        try:
-            num: int = int(input("> "))
-            return num
-        except ValueError:
-            print("Entrada inválida. Insira um número: ")
-
-
 def get_soma(n1: int, n2: int) -> int:
+    if type(n1) != int or type(n2) != int:
+        return Exception
     soma: int = 0
     for i in range(n1, n2 + 1):
         if i == n1:
@@ -21,16 +13,29 @@ def get_soma(n1: int, n2: int) -> int:
     return soma
 
 
-def main():
-    print("Insira o primeiro número: ")
-    n1: int = get_num()
 
-    print("Insira o segundo número: ")
-    n2: int = get_num()
+def tests() -> None:
+    print("## Rodando testes")
+    print("### get_soma")
 
-    soma = get_soma(n1, n2)
-    print(f"A soma de todos os números entre {n1} -> {n2} = {soma}")
+    assert get_soma(1, 10) == 55
+    assert get_soma(20, 45) == 845
+    print("- Interválos entre números inteitor - ok")
+
+    assert get_soma("sim", "não") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (get_soma(5.5, 5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert get_soma(True, False) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert get_soma([], []) == Exception
+    print("- List como argumento - ok")
+
+    print("Todos os testes ok")
 
 
 if __name__ == "__main__":
-    main()
+    tests()

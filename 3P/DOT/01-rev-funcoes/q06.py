@@ -7,45 +7,43 @@
 
 
 def poligono_regular(qt_lado: int, medida_lado: int) -> dict:
+    if type(qt_lado) != int or type(medida_lado) != int:
+        return Exception
     if qt_lado == 3:
         perimetro: float = medida_lado * 3
-        return {"tipo": "TRIÂNGULO", "perimetro": perimetro}
+        return {"tipo": "TRIÂNGULO", "calc": perimetro}
     if qt_lado == 4:
         area: float = medida_lado * medida_lado
-        return {"tipo": "QUADRADO", "area": area}
+        return {"tipo": "QUADRADO", "calc": area}
     if qt_lado == 5:
         return {"tipo": "PENTÁGONO"}
-    return {"tipo": "Não é um poligono regular."}
+    return {"tipo": "Não é um polígono regular.", "calc": 0}
 
 
-def main():
-    while True:
-        try:
-            lados: int = int(input("Insira a quantidade de lados: "))
-            if 3 <= lados <= 5:
-                break
-            else:
-                print('Somente números 3, 4 e 5.')
-        except ValueError:
-            print("Opção inválida. Digite a quantidade de lados.")
+def tests() -> None:
+    print("## Rodando testes")
+    print("### poligono_regular")
 
-    while True:
-        try:
-            medida: int = int(input("Insira a medida dos lados (em cm): "))
-            if type(medida) == int:
-                break
-        except ValueError:
-            print("Opção inválida. Digite a medida dos lados.")
+    assert poligono_regular(3, 3) == {"tipo": "TRIÂNGULO", "calc": 9}
+    print("- Número int como qt_lados e int como medida_lados - ok")
 
-    poligono: dict = poligono_regular(lados, medida)
+    assert (poligono_regular(1, 4)) == {"tipo": "Não é um polígono regular.", "calc": 0}
+    print("- Quantidade de lados inválida (polígono não regular) - ok")
 
-    if lados == 3:
-        print(f'Tipo: {poligono["tipo"]}, Perímetro: {poligono["perimetro"]}')
-    if lados == 4:
-        print(f'Tipo: {poligono["tipo"]}, Área: {poligono["area"]}')
-    if lados == 5:
-        print(f'Tipo: {poligono["tipo"]}')
+    assert poligono_regular(6.2, 6) == Exception
+    print("- Número float como qt_lados - ok")
+
+    assert poligono_regular(6, 6.2) == Exception
+    print("- Número float como qt_lados - ok")
+
+    assert poligono_regular("", "") == Exception
+    print("- String como argumentos - ok")
+
+    assert poligono_regular([], []) == Exception
+    print("- List como argumentos - ok")
+
+    print("Todos os testes ok")
 
 
 if __name__ == "__main__":
-    main()
+    tests()

@@ -4,26 +4,37 @@
 # número, também do tipo inteiro.
 
 def fatorial(num: int) -> int:
+    if type(num) != int:
+        return Exception
+    if num < 0:
+        return Exception
     res: int = 1
     for i in range(1, num + 1):
         res *= i
     return res
 
-def main():
-    while True:
-        try:
-            num: int = int(input("Insira um número inteiro positivo: "))
-            if num > 0:
-                res: int = fatorial(num)
-                print(
-                    f"O fatorial de {num} é: {res}"
-                )
-            else:
-                print('O número precisa ser diferente de 0.')
-            break
-        except ValueError:
-            print("Entrada inválida.")
+
+def tests() -> None:
+    print("## Rodando testes")
+    print("### fatorial")
+
+    assert fatorial(5) == 120
+    assert fatorial(0) == 1
+    print("- Número int como argumento - ok")
+
+    assert fatorial(-1) == Exception
+
+    assert (fatorial(5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert fatorial("") == Exception
+    print("- String como argumento - ok")
+
+    assert fatorial([]) == Exception
+    print("- List como argumento - ok")
+
+    print("Todos os testes ok")
 
 
 if __name__ == "__main__":
-   main()
+    tests()

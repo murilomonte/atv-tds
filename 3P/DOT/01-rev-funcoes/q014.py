@@ -3,6 +3,10 @@
 
 
 def calc(n: int) -> float:
+    if type(n) != int:
+        return Exception
+    if n <= 0:
+        return Exception
     res: float = 0
     for i in range(1, n + 1):
         res += 1 / fatorial(i)
@@ -10,26 +14,66 @@ def calc(n: int) -> float:
 
 
 def fatorial(num: int) -> float:
+    if type(num) != int:
+        return Exception
+    if num <= 0:
+        return Exception
     res: float = 1
     for i in range(1, num + 1):
         res *= i
     return res
 
-def main():
-    while True:
-        try:
-            num: int = int(input("Insira um número inteiro positivo: "))
-            res: float = calc(num)
-            if num > 0:
-                print(
-                    f"O resultado da equação: S = 1 + 1/1! + 1/N! + 1/3! + 1 /N!. Sendo N = {num} é igual a: {res:.2f}"
-                )
-                break
-            else:
-                print('O número precisa ser diferente de 0.')
-        except ValueError:
-            print("Entrada inválida.")
+
+def tests() -> None:
+    print("## Rodando testes")
+    print("### calc")
+
+    assert calc(5) == 1.7166666666666668
+    assert calc(56) == 1.7182818284590455
+    assert calc(3) == 1.6666666666666667
+    assert calc(9) == 1.7182815255731925
+    print("- Números inteiros - ok")
+
+    assert calc(0) == Exception
+    print("- 0 como argumento - ok")
+
+    assert calc("lorem") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (calc(5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert calc(True) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert calc([]) == Exception
+    print("- List como argumento - ok")
+
+    print("### fatorial")
+
+    assert fatorial(5) == 120
+    assert fatorial(4) == 24
+    assert fatorial(3) == 6
+    assert fatorial(2) == 2
+    print("- Números inteiros - ok")
+
+    assert fatorial(0) == Exception
+    print("- 0 como argumento - ok")
+
+    assert fatorial("lorem") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (fatorial(5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert fatorial(True) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert fatorial([]) == Exception
+    print("- List como argumento - ok")
+
+    print("Todos os testes ok")
 
 
 if __name__ == "__main__":
-   main()
+    tests()

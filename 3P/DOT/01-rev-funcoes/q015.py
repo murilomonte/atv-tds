@@ -3,27 +3,42 @@
 
 
 def calc(n: int) -> float:
+    if type(n) != int:
+        return Exception
+    if n <= 0:
+        return Exception
     res: float = 0
     for i in range(1, n + 1):
         res += ((i**2) + 1) / (i + 3)
     return res
 
 
-def main():
-    while True:
-        try:
-            num: int = int(input("Insira um número inteiro positivo: "))
-            res: float = calc(num)
-            if num > 0:
-                print(
-                    f"O resultado da equação: S = 2/4 + 5/5 + 10/6 + 17/7 + 26/8 + ... +(N^2+1)/(N+3). Sendo N = {num} é igual a: {res:.2f}"
-                )
-                break
-            else:
-                print('O número precisa ser diferente de 0.')
-        except ValueError:
-            print("Entrada inválida.")
+def tests() -> None:
+    print("## Rodando testes")
+    print("### calc")
+    
+    assert calc(5) == 8.845238095238095
+    assert calc(9) == 30.698773448773448
+    assert calc(3) == 3.166666666666667
+    print("- Números inteiros - ok")
+
+    assert calc(0) == Exception
+    print("- 0 como argumento - ok")
+
+    assert calc("lorem") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (calc(5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert calc(True) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert calc([]) == Exception
+    print("- List como argumento - ok")
+
+    print("Todos os testes ok")
 
 
 if __name__ == "__main__":
-    main()
+    tests()

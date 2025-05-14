@@ -3,27 +3,43 @@
 
 
 def calc(n: int) -> float:
+    if type(n) != int:
+        return Exception
+    if n <= 0:
+        return Exception
     res: float = 0
     for i in range(1, n + 1):
         res += 1 / i
     return res
 
 
-def main():
-    while True:
-        try:
-            num: int = int(input("Insira um número inteiro positivo: "))
-            res: float = calc(num)
-            if num > 0:
-                print(
-                    f"O resultado da equação: S = 1 + 1/2 + 1/3 + 1/4 + 1/5 + ... + 1/N. Sendo N = {num} é igual a: {res:.2f}"
-                )
-                break
-            else:
-                print('O número precisa ser diferente de 0.')
-        except ValueError:
-            print("Entrada inválida.")
+def tests() -> None:
+    print("## Rodando testes")
+    print("### calc")
+
+    assert calc(5) == 2.283333333333333
+    assert calc(56) == 4.611469354783229
+    assert calc(3) == 1.8333333333333333
+    assert calc(9) == 2.8289682539682537
+    print("- Números inteiros - ok")
+
+    assert calc(0) == Exception
+    print("- 0 como argumento - ok")
+
+    assert calc("lorem") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (calc(5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert calc(True) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert calc([]) == Exception
+    print("- List como argumento - ok")
+
+    print("Todos os testes ok")
 
 
 if __name__ == "__main__":
-    main()
+    tests()

@@ -1,23 +1,27 @@
-def calc_nota(n1, n2) -> float:
-    media = (n1 + n2) / 2
+def calc_nota(n1: float, n2: float) -> float:
+    if type(n1) != float:
+        return Exception
+    media: float = (n1 + n2) / 2
     return media
 
 
-def main() -> None:
-    while True:
-        try:
-            n1 = float(input("Insira a primeira nota: "))
-            n2 = float(input("Insira a segunda nota: "))
-            media = calc_nota(n1, n2)
-            print(f"Média semestral: {media}")
-            if media >= 6:
-                print(f"PARABÉNS! Você foi aprovado.")
-            else:
-                print(f"Você foi reprovado.")
-            break
-        except:
-            print("Nota inválida. Digite novamente!")
+def tests() -> None:
+    print("## Rodando testes")
+    print("### fah_to_cel")
+    assert calc_nota(6.0, 6.0) == 6.0
+    print("- Número float como argumento - ok")
+
+    assert calc_nota(6, 6) == Exception
+    print("- Número int como argumento - ok")
+
+    assert calc_nota("", "") == Exception
+    print("- String como argumento - ok")
+
+    assert calc_nota([], []) == Exception
+    print("- List como argumento - ok")
+
+    print("Todos os testes ok")
 
 
 if __name__ == "__main__":
-    main()
+    tests()

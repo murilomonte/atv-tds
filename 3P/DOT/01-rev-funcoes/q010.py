@@ -6,6 +6,8 @@
 
 
 def max(n1: int, n2: int, n3: int, n4: int) -> int:
+    if (type(n1) != int) or (type(n2) != int) or (type(n3) != int) or (type(n4) != int):
+        return Exception
     if n1 == n2 == n3 == n4:
         return n1
     lista: list[int] = [n1, n2, n3, n4]
@@ -16,23 +18,36 @@ def max(n1: int, n2: int, n3: int, n4: int) -> int:
     return maior
 
 
-def main() -> None:
-    lista_series: list[int] = []
-    i: int = 0
-    while i < 4:
-        i+= 1
-        try:
-            n1: int = int(input("Digite o primeiro número: "))
-            n2: int = int(input("Digite o segundo número: "))
-            n3: int = int(input("Digite o terceiro número: "))
-            n4: int = int(input("Digite o quarto número: "))
-            
-            maior: int = max(n1, n2, n3, n4)
-            print(f"O maior entre {n1}, {n2}, {n3} e {n4} é: {maior}")
-            lista_series.append(maior)
-        except ValueError:
-            i -= 1
-            print("\nEntrada inválida. Digite apenas números!")
+def tests() -> None:
+    print("## Rodando testes")
+    print("### max")
+
+    assert max(1, 10, 34, -3) == 34
+    assert (
+        max(
+            20,
+            45,
+            -45,
+            1234,
+        )
+        == 1234
+    )
+    print("- Números inteiros - ok")
+
+    assert max("lorem", "ipsum", "dolor", "sit") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (max(5.5, 5.5, 3.4, 5.6)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert max(True, False, False, True) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert max([], [], [], []) == Exception
+    print("- List como argumento - ok")
+
+    print("Todos os testes ok")
+
 
 if __name__ == "__main__":
-    main()
+    tests()
