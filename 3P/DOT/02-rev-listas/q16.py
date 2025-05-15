@@ -8,8 +8,12 @@ from random import randint
 
 
 def calc(list_a: list[int]) -> list[float]:
+    if type(list_a) != list:
+        return Exception
+    if len(list_a) == 0:
+        return Exception
+    
     buffer_list: list[float] = []
-
     for index, item in enumerate(list_a):
         if index % 2 == 0:
             buffer_list.append(item / 2)
@@ -41,6 +45,32 @@ def main() -> None:
     print("Lista Y:", modified_list)
 
 
+def tests() -> None:
+    print("## Rodando testes")
+    print("### calc")
+
+    lista: list[int] = [5, 2, 2, 7, 2, 10, 8, 7, 7, 7]
+
+    assert calc(lista) == [2.5, 6, 1.0, 21, 1.0, 30, 4.0, 21, 3.5, 21]
+    print("- Lista com números inteiros - ok")
+
+    assert calc(0) == Exception
+    print("- 0 como argumento - ok")
+
+    assert calc("lorem") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (calc(5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert calc(True) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert calc([]) == Exception
+    print("- List vazia como argumento - ok")
+
+    print("Todos os testes ok")
+
 
 if __name__ == "__main__":
-    main()
+    tests()

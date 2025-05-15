@@ -4,6 +4,10 @@ from random import randint
 
 
 def intercalate(list_a: list[int], list_b: list[int]) -> list[int]:
+    if (type(list_a) != list) or (type(list_b) != list):
+        return Exception
+    if (len(list_a) == 0) or (len(list_b) == 0):
+        return Exception
     if len(list_a) == len(list_b):
         buffer_list: list[int] = []
         for index in range(len(list_a)):
@@ -11,7 +15,7 @@ def intercalate(list_a: list[int], list_b: list[int]) -> list[int]:
             buffer_list.append(list_b[index])
         return buffer_list
     else:
-        return []
+        return Exception
 
 
 def random_list(lenght: int, start: int = 0, end: int = 10) -> list[int]:
@@ -39,5 +43,36 @@ def main() -> None:
     print("Tamanho da lista:", len(res))
 
 
+def tests() -> None:
+    print("## Rodando testes")
+    print("### intercalate")
+
+    lista_a: list[int] = [5, 3, 3, 4, 1]
+    lista_b: list[int] = [2, 8, 7, 3, 4]
+
+    assert intercalate(lista_a, lista_b) == [5, 2, 3, 8, 3, 7, 4, 3, 1, 4]
+    print("- Lista com números inteiros - ok")
+
+    assert intercalate([1], [2, 2, 4]) == Exception
+    print("- Lista com listas de tamanho diferente - ok")
+
+    assert intercalate(0, 0) == Exception
+    print("- 0 como argumento - ok")
+
+    assert intercalate("lorem", 'ipsum') == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (intercalate(5.5, 5.4)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert intercalate(True, False) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert intercalate([], []) == Exception
+    print("- List vazia como argumento - ok")
+
+    print("Todos os testes ok")
+
+
 if __name__ == "__main__":
-    main()
+    tests()

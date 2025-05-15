@@ -13,6 +13,11 @@ def roll_dice() -> int:
 
 
 def check_dice(times_rolled: int) -> dict[int, int]:
+    if type(times_rolled) != int:
+        return Exception
+    if times_rolled <= 0:
+        return Exception
+    
     dice_faces: dict[int, int] = {
         1: 0,
         2: 0,
@@ -42,5 +47,29 @@ def main() -> None:
         print(f"{key} caiu {chosen_faces[key]} vez(es).")
 
 
+
+def tests() -> None:
+    print("## Rodando testes")
+    print("### check_dice")
+
+    assert check_dice(0) == Exception
+    print("- 0 como argumento - ok")
+
+    assert check_dice("lorem") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (check_dice(5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert check_dice(True) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert check_dice([]) == Exception
+    print("- List vazia como argumento - ok")
+
+    print("Todos os testes ok")
+
+
 if __name__ == "__main__":
-    main()
+    tests()
+

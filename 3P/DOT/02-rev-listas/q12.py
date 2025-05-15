@@ -10,6 +10,10 @@ from random import choices
 
 
 def checkAnswer(key: list[str], answers: list[str]) -> int:
+    if (type(key) != list) or (type(answers) != list):
+        return Exception
+    if (len(key) == 0) or (len(answers) == 0):
+        return Exception
     if len(key) != len(answers):
         raise ValueError("As listas não têm a mesma quantide de itens.")
 
@@ -31,8 +35,8 @@ def random_letters_list(length: int, letters: list[str]) -> list[str]:
 def main() -> None:
     alternatives: list[str] = ["A", "B", "C", "D", "E"]
 
-    num_questions: int = 30
-    num_students: int = 20
+    num_questions: int = 5
+    num_students: int = 2
 
     answer_key: list[str] = random_letters_list(
         length=num_questions,
@@ -47,10 +51,38 @@ def main() -> None:
             letters=alternatives,
         )
         points = checkAnswer(key=answer_key, answers=test_answers)
-        print(f'\n## Estudante n° {student}')
-        print(f'Respostas: {test_answers}')
-        print(f'Pontuação: {points}')
+        print(f"\n## Estudante n° {student}")
+        print(f"Respostas: {test_answers}")
+        print(f"Pontuação: {points}")
+
+
+def tests() -> None:
+    print("## Rodando testes")
+    print("### checkAnswer")
+
+    gabarito: list[int] = ['A', 'A', 'A', 'D', 'D']
+    respostas: list[int] = ['D', 'C', 'A', 'A', 'C']
+
+    assert checkAnswer(key=gabarito, answers=respostas) == 1
+    print("- Gabarito e respostas corretos - ok")
+
+    assert checkAnswer(0, 0) == Exception
+    print("- 0 como argumento - ok")
+
+    assert checkAnswer("lorem", "ipsum") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (checkAnswer(5.5, 5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert checkAnswer(True, False) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert checkAnswer([], []) == Exception
+    print("- List vazia como argumento - ok")
+
+    print("Todos os testes ok")
 
 
 if __name__ == "__main__":
-    main()
+    tests()

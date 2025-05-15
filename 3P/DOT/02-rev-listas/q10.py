@@ -6,6 +6,10 @@ from random import randint
 
 
 def smaller_number(lista: list[int]) -> dict[str, int]:
+    if type(lista) != list:
+        return Exception
+    if len(lista) == 0:
+        return Exception
     smaller_number: dict[str, int] = {"num": lista[0], "index": 0}
     for index, num in enumerate(lista):
         if num < smaller_number["num"]:
@@ -15,6 +19,10 @@ def smaller_number(lista: list[int]) -> dict[str, int]:
 
 
 def largest_number(lista: list[int]) -> dict[str, int]:
+    if type(lista) != list:
+        return Exception
+    if len(lista) == 0:
+        return Exception
     largest: dict[str, int] = {"num": lista[0], "index": 0}
     for index, num in enumerate(lista):
         if num > largest["num"]:
@@ -52,5 +60,52 @@ def main() -> None:
     print("Indice:", smaller["index"])
 
 
+def tests() -> None:
+    print("## Rodando testes")
+    print("### smaller_number")
+
+    lista: list[int] = [5, 4, 1, 5, 10, 9, 6, 1, 4, 4, 10, 0, 8, 6, 5]
+
+    assert smaller_number(lista) == {"num": 0, "index": 11}
+    print("- Lista com números inteiros - ok")
+
+    assert smaller_number(0) == Exception
+    print("- 0 como argumento - ok")
+
+    assert smaller_number("lorem") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (smaller_number(5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert smaller_number(True) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert smaller_number([]) == Exception
+    print("- List vazia como argumento - ok")
+
+    print("### largest_number")
+
+    assert largest_number(lista) == {"num": 10, "index": 4}
+    print("- Lista com números inteiros - ok")
+
+    assert largest_number(0) == Exception
+    print("- 0 como argumento - ok")
+
+    assert largest_number("lorem") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (largest_number(5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert largest_number(True) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert largest_number([]) == Exception
+    print("- List vazia como argumento - ok")
+
+    print("Todos os testes ok")
+
+
 if __name__ == "__main__":
-    main()
+    tests()

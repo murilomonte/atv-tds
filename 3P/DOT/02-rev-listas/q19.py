@@ -5,6 +5,10 @@ from random import randint
 
 
 def unify_lists(list_a: list[int], list_b: list[int]) -> list[int]:
+    if type(list_a) != list or type(list_b) != list:
+        return Exception
+    if len(list_a) == 0 or len(list_b) == 0:
+        return Exception
     ## list.extend também funciona
     buffer_list: list[int] = list_a
 
@@ -38,5 +42,31 @@ def main() -> None:
     print("Lista unificada:", unified_list)
 
 
+
+def tests() -> None:
+    print("## Rodando testes")
+    print("### unify_lists")
+
+    lista_a: list[int] = [9, 2, 0, 4, 7, 0, 6, 2, 0, 1]
+    lista_b: list[int] = [5, 5, 9, 0, 9, 2, 5, 0, 1, 5]
+
+    assert unify_lists(lista_a, lista_b) == [9, 2, 0, 4, 7, 0, 6, 2, 0, 1, 5, 5, 9, 0, 9, 2, 5, 0, 1, 5]
+    print("- Lista com números inteiros - ok")
+
+    assert unify_lists("lorem", "ipsum") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (unify_lists(5.5, 4.6)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert unify_lists(True, False) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert unify_lists([], []) == Exception
+    print("- List vazia como argumento - ok")
+
+    print("Todos os testes ok")
+
+
 if __name__ == "__main__":
-    main()
+    tests()

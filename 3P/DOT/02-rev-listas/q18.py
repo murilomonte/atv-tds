@@ -1,8 +1,13 @@
 # 18) Ler uma lista X de 10 elementos. A seguir copiar todos os valores negativos da lista X para
 # uma lista R, sem deixar elementos vazios entre os valores copiados. Escrever as listas X e R.
+
 from random import randint
 
 def transfer_list(number_list: list[int]) -> list[int]:
+    if type(number_list) != list:
+        return Exception
+    if len(number_list) == 0:
+        return Exception
     list_r: list[int] = []
     for item in number_list:
         if item < 0:
@@ -32,5 +37,29 @@ def main() -> None:
     print("Lista R:", copy_list)
 
 
+def tests() -> None:
+    print("## Rodando testes")
+    print("### transfer_list")
+
+    lista: list[int] = [1, -4, -1, -6, -8, 8, 7, -10, -9, -10]
+
+    assert transfer_list(lista) == [-4, -1, -6, -8, -10, -9, -10]
+    print("- Lista com números inteiros - ok")
+
+    assert transfer_list("lorem") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (transfer_list(5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert transfer_list(True) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert transfer_list([]) == Exception
+    print("- List vazia como argumento - ok")
+
+    print("Todos os testes ok")
+
+
 if __name__ == "__main__":
-    main()
+    tests()

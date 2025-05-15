@@ -4,9 +4,11 @@
 from random import randint
 
 
-def find(item: int, list: list[int]) -> bool:
+def find(item: int, lista: list[int]) -> bool:
+    if type(item) != int or type(lista) != list:
+        return Exception
     found: bool = False
-    for i in list:
+    for i in lista:
         if item == i:
             found = True
             break
@@ -36,6 +38,30 @@ def main() -> None:
     for i in test_list:
         print(f"{i} está na lista gerada: {find(item=i, list=random_list_a)}")
 
+def tests() -> None:
+    print("## Rodando testes")
+    print("### find")
+
+    lista: list[int] = [6, 8, -10, 9, 6, -3, 5, 2, 6, 7]
+
+    assert find(item=7, lista=lista) == True
+    assert find(item=1, lista=lista) == False
+    print("- Lista com números inteiros - ok")
+
+    assert find("lorem", "ipsum") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (find(5.5, 5.4)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert find(True, False) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert find([], []) == Exception
+    print("- List vazia como argumento - ok")
+
+    print("Todos os testes ok")
+
 
 if __name__ == "__main__":
-    main()
+    tests()

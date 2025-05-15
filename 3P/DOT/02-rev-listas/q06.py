@@ -6,10 +6,16 @@ from random import randint
 
 
 def calc_faturamento_individual(quantidade: list[int], valor: list[int]) -> list[int]:
+    if type(quantidade) != list or type(valor) != list:
+        return Exception
+    if len(quantidade) == 0 or len(valor) == 0:
+        return Exception
     faturamento: list[int] = []
     if len(quantidade) == len(valor):
         for index in range(len(quantidade)):
             faturamento.append(quantidade[index] * valor[index])
+    else:
+        return Exception
     return faturamento
 
 
@@ -53,5 +59,37 @@ def main() -> None:
     print("Faturamento total:", faturamento_total)
 
 
+def tests() -> None:
+    print("## Rodando testes")
+    print("### calc_faturamento_individual")
+
+    quantidade: list[int] = [3, 10, 9, 1, 8, 5, 5, 5, 3, 6, 10, 1, 10, 6, 2, 10, 9, 8, 4, 3]
+    preco: list[int] = [34, 36, 82, 66, 10, 13, 96, 34, 25, 92, 54, 79, 74, 39, 25, 57, 38, 32, 30, 90]
+
+    assert calc_faturamento_individual(quantidade, preco) == [102, 360, 738, 66, 80, 65, 480, 170, 75, 552, 540, 79, 740, 234, 50, 570, 342, 256, 120, 270]
+    print("- Lista com números inteiros - ok")
+
+    assert calc_faturamento_individual([1], [2, 2, 4]) == Exception
+    print("- Lista com listas de tamanho diferente - ok")
+
+    assert calc_faturamento_individual(0, 0) == Exception
+    print("- 0 como argumento - ok")
+
+    assert calc_faturamento_individual("lorem", 'ipsum') == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (calc_faturamento_individual(5.5, 5.4)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert calc_faturamento_individual(True, False) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert calc_faturamento_individual([], []) == Exception
+    print("- List vazia como argumento - ok")
+
+    print("Todos os testes ok")
+
+
 if __name__ == "__main__":
-    main()
+    tests()
+
