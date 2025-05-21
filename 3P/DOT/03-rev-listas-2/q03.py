@@ -4,10 +4,20 @@
 from random import randint
 
 def determine_sum(number_list: list[int]) -> int:
+    if type(number_list) != list:
+        return Exception
+    
+    if len(number_list) < 2:
+        return Exception
+    
+    for item in number_list:
+        if type(item) != int:
+            return Exception
+
     largest_sum: int = 0
     for index in range(len(number_list) - 1):
         if number_list[index] + number_list[index + 1] > largest_sum:
-            largest_sum = number_list[index] + number_list[index]
+            largest_sum = number_list[index] + number_list[index + 1]
     return largest_sum
 
 def random_list(lenght: int, start: int = 0, end: int = 10) -> list[int]:
@@ -31,5 +41,30 @@ def main() -> None:
     print('\n# Maior soma')
     print(f'Valor: {largest_sum}')
 
+
+def tests() -> None:
+    print("## Rodando testes")
+    print("### determine_sum")
+
+    lista_a: list[int] = [5, -2, -2, -7, 3, 15, 10, -3, 9, -6, 4, 1]
+    
+    assert determine_sum(lista_a) == 25
+
+    print("- Lista com números inteiros - ok")
+
+    assert determine_sum("lorem") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (determine_sum(5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert determine_sum(True) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert determine_sum([]) == Exception
+    print("- List vazia como argumento - ok")
+
+    print("Todos os testes ok")
+
 if __name__ == "__main__":
-    main()
+    tests()

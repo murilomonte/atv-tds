@@ -5,6 +5,16 @@ from random import randint
 
 
 def ocurrence(number_list: list[int]) -> list[int]:
+    if type(number_list) != list:
+        return Exception
+    
+    if len(number_list) < 2:
+        return Exception
+    
+    for item in number_list:
+        if type(item) != int:
+            return Exception
+        
     buffer_list: list[int] = []
     for number in number_list:
         ocurrences: int = 0
@@ -37,5 +47,31 @@ def main() -> None:
     print("Lista sem números que repetem:", ocurrence(random_list_w))
 
 
+def tests() -> None:
+    print("## Rodando testes")
+    print("### ocurrence")
+
+    lista_a: list[int] = [1, 2, 3]
+    lista_b: list[int] = [3, 7, 20, 5, 7, 8]
+
+    assert ocurrence(lista_a) == [1, 2, 3]
+    assert ocurrence(lista_b) == [3, 20, 5, 8]
+
+    print("- Lista com números inteiros - ok")
+
+    assert ocurrence("lorem") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (ocurrence(5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert ocurrence(True) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert ocurrence([]) == Exception
+    print("- List vazia como argumento - ok")
+
+    print("Todos os testes ok")
+
 if __name__ == "__main__":
-    main()
+    tests()

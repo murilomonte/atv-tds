@@ -4,6 +4,16 @@ from random import randint
 
 
 def number_counter(number_list: list[int]) -> dict[int, int]:
+    if type(number_list) != list:
+        return Exception
+
+    if len(number_list) < 2:
+        return Exception
+
+    for item in number_list:
+        if type(item) != int:
+            return Exception
+
     buffer_dict: dict[int, int] = {}
     for item in number_list:
         if item in buffer_dict:
@@ -46,5 +56,32 @@ def main() -> None:
     # TODO: fazer testes
 
 
+def tests() -> None:
+    print("## Rodando testes")
+    print("### number_counter")
+
+    lista_a: list[int] = [9, 2, 0, 4, 7, 0, 6, 2, 0, 1]
+    lista_b: list[int] = [3, 2, 4, 4, 2, 8, 2, 6, 7, 1]
+
+    assert number_counter(lista_a) == {9: 1, 2: 2, 0: 3, 4: 1, 7: 1, 6: 1, 1: 1}
+    assert number_counter(lista_b) == {3: 1, 2: 3, 4: 2, 8: 1, 6: 1, 7: 1, 1: 1}
+
+    print("- Lista com números inteiros - ok")
+
+    assert number_counter("lorem") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (number_counter(5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert number_counter(True) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert number_counter([]) == Exception
+    print("- List vazia como argumento - ok")
+
+    print("Todos os testes ok")
+
+
 if __name__ == "__main__":
-    main()
+    tests()

@@ -6,6 +6,16 @@ from random import randint
 # Para cada número, percorre novamente a lista. Se o mesmo for igual ao número principal, soma e guarda em uma variável chamada maior_soma_interna. Caso a mesma seja maior que outra variável chamada maior_soma_global, substitua.
 
 def calc_seq(number_list: list[int]) -> int:
+    if type(number_list) != list:
+        return Exception
+    
+    if len(number_list) < 2:
+        return Exception
+    
+    for item in number_list:
+        if type(item) != int:
+            return Exception
+
     global_sum: int = 0
     internal_sum: int = 0
     ocurrences: int = 0 ## Remover caso seja preciso considerar também números que não se repetem
@@ -44,5 +54,29 @@ def main() -> None:
     print("Res:", calc_seq(random_list_w))
 
 
+def tests() -> None:
+    print("## Rodando testes")
+    print("### calc_seq")
+
+    lista_a: list[int] = [5, -2, -2, 5, 3, 5, 10, -2, 3, 10, 3, 1]
+
+    assert calc_seq(lista_a) == 20
+
+    print("- Lista com números inteiros - ok")
+
+    assert calc_seq("lorem") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (calc_seq(5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert calc_seq(True) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert calc_seq([]) == Exception
+    print("- List vazia como argumento - ok")
+
+    print("Todos os testes ok")
+
 if __name__ == "__main__":
-    main()
+    tests()

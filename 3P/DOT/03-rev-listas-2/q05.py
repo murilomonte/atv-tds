@@ -4,12 +4,22 @@
 
 from random import randint
 
-def calcula_ies(lista: list[int]) -> list[int]:
+def calcula_ies(number_list: list[int]) -> list[int]:
+    if type(number_list) != list:
+        return Exception
+    
+    if len(number_list) < 2:
+        return Exception
+    
+    for item in number_list:
+        if type(item) != int:
+            return Exception
+        
     final_list: list[int] = []
     sum_buffer: int = 0
 
-    for index in range(1, len(lista) + 1):
-        for item in lista[:index]:
+    for index in range(1, len(number_list) + 1):
+        for item in number_list[:index]:
             sum_buffer += item
         final_list.append(sum_buffer)
         sum_buffer = 0
@@ -38,5 +48,32 @@ def main() -> None:
     print("\n## Resultado")
     print("Res:", calcula_ies(random_list_w))
 
+
+def tests() -> None:
+    print("## Rodando testes")
+    print("### calcula_ies")
+
+    lista_a: list[int] = [1,2,3]
+    lista_b: list[int] = [1, 2, 3, 4]
+    
+    assert calcula_ies(lista_a) == [1, 3, 6]
+    assert calcula_ies(lista_b) == [1, 3, 6, 10]
+
+    print("- Lista com números inteiros - ok")
+
+    assert calcula_ies("lorem") == Exception
+    print("- String qualquer como argumento - ok")
+
+    assert (calcula_ies(5.5)) == Exception
+    print("- Número float como argumento - ok")
+
+    assert calcula_ies(True) == Exception
+    print("- Booleano como argumento - ok")
+
+    assert calcula_ies([]) == Exception
+    print("- List vazia como argumento - ok")
+
+    print("Todos os testes ok")
+
 if __name__ == "__main__":
-    main()
+    tests()
